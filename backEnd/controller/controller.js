@@ -14,6 +14,9 @@ var connection = mysql.createPool({
 });
 
 */
+
+
+/*
 const { Client } = require('pg');
 
 const client = new Client({
@@ -22,13 +25,8 @@ const client = new Client({
 });
 
 client.connect();
+*/
 
-client.query("SELECT * FROM Taxies;", (err, res) => {
-  if (err) throw err;
-  var obj = res.rows;
-  client.end();
-  res.json(obj);
-});
 
 exports.taxies = function( req, res )
 {
@@ -50,13 +48,14 @@ exports.taxies = function( req, res )
       });
     }
   });*/
-
+/*
   client.query("SELECT * FROM public./"Taxies/" ;", (err, res) => {
     if (err) throw err;
     var obj = res.rows;
     client.end();
     res.json(obj);
   });
+  */
 }
 
 exports.maps = function( req, res )

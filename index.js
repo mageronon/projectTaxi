@@ -11,6 +11,19 @@ app.use(bodyParser.urlencoded({
   extended: false }));
 app.use(bodyParser.json());
 
+var pg = require('pg');
+app.get('/db', function (request, response){
+  pg.connect(process.env.DATABASE_URL, function(err, client, done){
+    client.query("SELECT * FROM Taxies;", (err, res) => {
+      done();
+      if (err) response.send("error: " + err);
+      var obj = res.rows;
+      client.end();
+      console.log(obj);
+      res.json(obj);
+    });
+  });
+});
 
 app.route( "/Home" ).get((req, res) => {
   res.sendFile(__dirname + '/frontEnd/index.html');
