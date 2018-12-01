@@ -16,16 +16,9 @@ var connection = mysql.createPool({
 */
 
 
-/*
-const { Client } = require('pg');
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
 
-client.connect();
-*/
+
 
 
 exports.taxies = function( req, res )
@@ -48,14 +41,37 @@ exports.taxies = function( req, res )
       });
     }
   });*/
-/*
-  client.query("SELECT * FROM public./"Taxies/" ;", (err, res) => {
-    if (err) throw err;
-    var obj = res.rows;
+  /*
+  var pg = require('pg');
+pg.connect();
+  pg.connect(,
+   function(err, client, done){
+    client.query("SELECT * FROM public.'Taxies' ;", (err, res1) => {
+      done();
+      if (err) response.send("error: " + err);
+      var obj = res1.rows;
+      console.log(obj);
+      response.json(obj);
+    });
+  });*/
+  const { Client } = require('pg');
+
+  const client = new Client({
+    connectionString: "postgres://oxxdqhrghnxtnv:666cc29523248f92449fdfc2b0ca1c9dcec4b0a32b1e4fa9704cc6acfff9dd49@ec2-79-125-124-30.eu-west-1.compute.amazonaws.com:5432/dd67l51glh9flj",
+    ssl: true
+  });
+
+  client.connect();
+
+  client.query("SELECT * FROM public.\"Taxies\" ;", (err, results) => {
+    if (err) res.send(err);
+    var obj = results.rows;
+    console.log(obj);
     client.end();
     res.json(obj);
   });
-  */
+
+
 }
 
 exports.maps = function( req, res )

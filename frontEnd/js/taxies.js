@@ -26,7 +26,8 @@ var initTaxies = function(){
              url: "/backEnd/taxies/" + data[i].Company,
              dataType: "json",
              success: function ( data1 ) {
-               taxies.push(createTaxi(data[k].City, data[k].Company, data[k].Type, data1.price, data[k].image));
+               console.log(data[k]);
+               taxies.push(createTaxi(data[k].City, data[k].Company, data[k].Type, data1.price, data[k].Image));
                k++;
              },
              data: localObj
