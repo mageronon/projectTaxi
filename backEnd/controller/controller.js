@@ -7,10 +7,10 @@ var async = require('async');
 
 var connection = mysql.createPool({
     connectionLimit: 50,
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'taxiDB'
+    host: 'ec2-79-125-124-30.eu-west-1.compute.amazonaws.com',
+    user: 'oxxdqhrghnxtnv',
+    password: '666cc29523248f92449fdfc2b0ca1c9dcec4b0a32b1e4fa9704cc6acfff9dd49',
+    database: 'postgresql-colorful-63038'
 });
 
 const { Client } = require('pg');
