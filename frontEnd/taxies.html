@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/resize.css">
+    <link rel="shortcut icon" href="./images/logo.png">
+    <script type="text/javascript" src="js/JQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="./js/taxies.js" type="text/javascript"></script>
+    <title></title>
+
+  </head>
+  <body onload="initTaxies()">
+
+    <div class="cityroad">
+      <div id="nav-menu">
+        <ul class="horizontal">
+          <img src="./images/logo.png" alt="">
+          <li id="nav-menu-first"><a href="Home">Best Taxi</a></li>
+          <li>Расчет</li>
+          <li><a href="Company">Компании</a></li>
+          <li><a href="About">О нас</a></li>
+        </ul>
+      </div>
+
+      <div id="floating-panel">
+        <input id="pac-input-fromT" class="controls" type="text" readonly>
+        <input id="pac-input-ToT" class="controls" type="text" readonly >
+      </div>
+      <div id="overApp">
+        <div class="row" id="app">
+          <ul id="listTaxi" class="column">
+
+            <li
+              v-for="taxi in sortedItems"
+              class="liInListTaxis"
+            >
+              <img :src="`${ taxi.image }`" alt=""> {{ taxi.companyName }} <span class="price"> {{ taxi.price }} грн.</span>
+            </li>
+          </ul>
+          <!-- style="border-left: 2px solid black;" -->
+          <ul id="info"  class="column" >
+            <li class="liInListTaxis" style="margin-top: 7%;">
+              Время: {{ time[0].now }}
+            </li>
+            <li class="liInListTaxis" style="margin-top: 10%;">
+              Ожидание: ~ {{ time[0].waiting }} мин.
+            </li>
+            <li class="liInListTaxis" style="margin-top: 10%;">
+              Растояние: {{ localObj.distance }} км.
+            </li>
+            <li class="liInListTaxis" style="margin-top: 10%;">
+              В дороге: ~{{ localObj.duration }} с трафиком {{ localObj.timeWithTrafic }} мин.
+            </li>
+            <li class="liInListTaxis" style="margin-top: 10%;">
+              Прибытие: {{ time[0].departureTime }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

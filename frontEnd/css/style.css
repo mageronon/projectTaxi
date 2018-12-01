@@ -1,0 +1,237 @@
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  margin-left: 25%;
+  height: 50%;
+  width: 50%;
+  margin-bottom: 2%;
+  margin-top: 12%;
+  background-color: grey;
+  z-index: 5;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+
+}
+.cityroad{
+  background: url("../images/backGround.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #cccccc;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#floating-panel {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  z-index: 5;
+
+  font-family: 'Roboto','sans-serif';
+  line-height: 50px;
+  color: black;
+}
+
+#pac-input-from{
+  width: 27%;
+  height: 30px;
+  padding: 7px;
+  float: left;
+  border: 1px solid #999;
+  border-radius: 14px;
+  background-color: white;
+  color: black;
+  font-family: 'Roboto','sans-serif';
+}
+
+#pac-input-To{
+  width: 27%;
+  height: 30px;
+  padding: 7px;
+  float: left;
+  margin-left: 18%;
+  border: 1px solid #999;
+  border-radius: 14px;
+  color: black;
+  background-color: white;
+}
+
+#pac-input-fromT{
+  width: 40%;
+  height: 30px;
+  padding: 7px;
+  border: 1px solid #999;
+  border-radius: 14px;
+  background-color: white;
+  color: black;
+  font-family: 'Roboto','sans-serif';
+}
+
+#pac-input-ToT{
+  width: 40%;
+  height: 30px;
+  padding: 7px;
+  margin-left: 16%;
+  border: 1px solid #999;
+  border-radius: 14px;
+  color: black;
+  background-color: white;
+}
+
+#Find{
+  float: right;
+  width: 13%;
+  height: 47px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f9b751;
+}
+.column {
+  float: left;
+  width: 45%;
+  list-style-type: none;
+}
+
+.column li{
+  margin-top: 4%;
+
+}
+
+.column img{
+  width: 40px;
+  height: 30px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  width: 100%;
+}
+.price{
+  float: right;
+}
+#overApp{
+  margin-left: 25%;
+  width: 50%;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: none;
+  border-radius: 28px;
+}
+.liInListTaxis{
+  font-family: PTSans-Caption;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.79);
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.prices{
+
+}
+table {
+    width:50%;
+    margin-left: 25%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+}
+
+table tr:nth-child(even) {
+    background-color: rgb(85,85,85);
+}
+
+table tr:nth-child(odd) {
+   background-color: rgb(153,153,153);
+}
+
+table th {
+    background-color: rgb(66, 65, 62);
+    color: white;
+    font-family: 'Roboto','sans-serif';
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+ul.horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   background-color: #f7f7f7;
+}
+ul.horizontal li :hover{
+  cursor: pointer;
+}
+ul.horizontal li  {
+    float: left;
+    margin-left: 1%;
+    width: auto;
+    height: 50px;
+    font-family: PTSans-Caption;
+    font-size: 36px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #3b3b3b;
+}
+ul.horizontal li a {
+  text-align: center;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+ul.horizontal :not(#nav-menu-first){
+  text-align: center;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+
+#nav-menu-first{
+
+  padding-right: 2%;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  height: 56px;
+  border-right: 4px black solid;
+}
+
+ul.horizontal img{
+    float: left;
+    margin-left: 2%;
+    width: 56px;
+    height: 56px;
+    padding-bottom: 12px;
+}

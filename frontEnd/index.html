@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/resize.css">
+    <link rel="shortcut icon" href="./images/logo.png">
+  	<!--<script src="js/uber.js"></script>-->
+    <title></title>
+
+  </head>
+  <body onload="initMap()">
+    <div class="cityroad">
+      <div id="nav-menu">
+        <ul class="horizontal">
+          <img src="./images/logo.png" alt="">
+          <li id="nav-menu-first">Best Taxi</li>
+          <li><a href="Ttaxies">Расчет</a></li>
+          <li><a href="Company">Компании</a></li>
+          <li><a href="About">О нас</a></li>
+        </ul>
+      </div>
+
+      <div id="floating-panel">
+        <input id="pac-input-from" class="controls" type="text" placeholder="Откуда">
+        <input id="pac-input-To" class="controls" type="text" placeholder="Куда">
+        <button type="button" id="Find" onclick="goToTaxie()">Поиск</button>
+      </div>
+      <!-- <button onclick="clearMarkers()">Clear Display</button> -->
+
+      <div id="map"></div>
+      <!--<button type="button" name="button" onclick="getEstimatesForUserLocation(40.7383405, -73.984567)">UBER</button> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script type="text/javascript" src="js/JQuery.js"></script>
+    <script src="./js/index.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnVlU107fhPTFdyyZFodC4ObGPtFDhtDw&&libraries=places" async defer></script>
+
+  </body>
+</html>
