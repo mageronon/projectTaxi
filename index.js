@@ -11,8 +11,6 @@ app.use(bodyParser.urlencoded({
   extended: false }));
 app.use(bodyParser.json());
 
-
-
 app.route( "/Home" ).get((req, res) => {
   res.sendFile(__dirname + '/frontEnd/index.html');
 });
