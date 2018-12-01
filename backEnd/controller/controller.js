@@ -4,7 +4,7 @@ var uberApi = new UberApi('1Hd1lrgoc2m6AbHihCqfKIj5-PlrYdTVNLPXDPPz');
 
 const mysql = require('mysql');
 var async = require('async');
-
+/*
 var connection = mysql.createPool({
     connectionLimit: 50,
     host: 'localhost',
@@ -13,6 +13,7 @@ var connection = mysql.createPool({
     database: 'taxiDB'
 });
 
+*/
 const { Client } = require('pg');
 
 const client = new Client({
@@ -21,67 +22,6 @@ const client = new Client({
 });
 
 client.connect();
-
-CREATE TABLE Users(
-  id serial primary key,
-  user_name varchar(64) not null,
-  password varchar(64) not null,
-  email varchar(80) not null,
-  date timestamp with time zone not null default current_timestamp
-);
-
-INSERT INTO Users
-  (user_name, password, email)
-VALUES
-  ("mageronon", "Kostya1999__", "mageron52@gmail.com");
-
-CREATE TABLE Taxies(
-  id serial primary key,
-  City varchar(64) not null,
-  Company varchar(64) not null,
-  Type varchar(64) not null,
-  Image varchar(64) not null
-);
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "OnTaxi", "Standart", "./images/OnTaxi.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "Taxify", "Standart", "./images/Taxify.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "Uklon", "Standart", "./images/Uklon.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "Ugo", "Standart", "./images/Ugo.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "579", "Standart", "./images/579.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "898", "Standart", "./images/898.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "838", "Standart", "./images/838.png");
-
-INSERT INTO Taxies
-  (City, Company, Type, Image)
-VALUES
-  ("Kiev", "Uber", "UberX", "./images/Uber.png");
 
 client.query("SELECT * FROM Taxies;", (err, res) => {
   if (err) throw err;
@@ -92,7 +32,7 @@ client.query("SELECT * FROM Taxies;", (err, res) => {
 
 exports.taxies = function( req, res )
 {
-  connection.getConnection(function(error, tempCont) {
+  /*connection.getConnection(function(error, tempCont) {
     if(error){
       tempCont.release();
       console.log("Error");
@@ -109,6 +49,13 @@ exports.taxies = function( req, res )
         }
       });
     }
+  });*/
+
+  client.query("SELECT * FROM Taxies;", (err, res) => {
+    if (err) throw err;
+    var obj = res.rows;
+    client.end();
+    res.json(obj);
   });
 }
 
