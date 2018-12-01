@@ -51,7 +51,7 @@ exports.taxies = function( req, res )
     }
   });*/
 
-  client.query("SELECT * FROM Taxies;", (err, res) => {
+  client.query("SELECT * FROM public./"Taxies/" ;", (err, res) => {
     if (err) throw err;
     var obj = res.rows;
     client.end();
