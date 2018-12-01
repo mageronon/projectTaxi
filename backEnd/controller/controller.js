@@ -7,20 +7,81 @@ var async = require('async');
 
 var connection = mysql.createPool({
     connectionLimit: 50,
-    host: 'ec2-79-125-124-30.eu-west-1.compute.amazonaws.com',
-    user: 'oxxdqhrghnxtnv',
-    password: '666cc29523248f92449fdfc2b0ca1c9dcec4b0a32b1e4fa9704cc6acfff9dd49',
-    database: 'postgresql-colorful-63038'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'taxiDB'
 });
 
 const { Client } = require('pg');
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: "postgres://oxxdqhrghnxtnv:666cc29523248f92449fdfc2b0ca1c9dcec4b0a32b1e4fa9704cc6acfff9dd49@ec2-79-125-124-30.eu-west-1.compute.amazonaws.com:5432/dd67l51glh9flj",
   ssl: true,
 });
 
 client.connect();
+
+CREATE TABLE Users(
+  id serial primary key,
+  user_name varchar(64) not null,
+  password varchar(64) not null,
+  email varchar(80) not null,
+  date timestamp with time zone not null default current_timestamp
+);
+
+INSERT INTO Users
+  (user_name, password, email)
+VALUES
+  ("mageronon", "Kostya1999__", "mageron52@gmail.com");
+
+CREATE TABLE Taxies(
+  id serial primary key,
+  City varchar(64) not null,
+  Company varchar(64) not null,
+  Type varchar(64) not null,
+  Image varchar(64) not null
+);
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "OnTaxi", "Standart", "./images/OnTaxi.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "Taxify", "Standart", "./images/Taxify.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "Uklon", "Standart", "./images/Uklon.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "Ugo", "Standart", "./images/Ugo.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "579", "Standart", "./images/579.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "898", "Standart", "./images/898.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "838", "Standart", "./images/838.png");
+
+INSERT INTO Taxies
+  (City, Company, Type, Image)
+VALUES
+  ("Kiev", "Uber", "UberX", "./images/Uber.png");
 
 client.query("SELECT * FROM Taxies;", (err, res) => {
   if (err) throw err;
