@@ -17,7 +17,7 @@ var connection = mysql.createPool({
 const { Client } = require('pg');
 
 const client = new Client({
-  connectionString: "postgres://oxxdqhrghnxtnv:666cc29523248f92449fdfc2b0ca1c9dcec4b0a32b1e4fa9704cc6acfff9dd49@ec2-79-125-124-30.eu-west-1.compute.amazonaws.com:5432/dd67l51glh9flj",
+  connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
 
