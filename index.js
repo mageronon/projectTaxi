@@ -31,7 +31,7 @@ routes( app );
 
 
 app.get('/', (req, res) => {
-  res.redirect('/login');
+  res.redirect('/Home');
 });
 
 

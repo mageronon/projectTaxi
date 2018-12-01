@@ -66,7 +66,7 @@ pg.connect();
   client.query("SELECT * FROM public.\"Taxies\" ;", (err, results) => {
     if (err) res.send(err);
     var obj = results.rows;
-    console.log(obj);
+    //console.log(obj);
     client.end();
     res.json(obj);
   });
